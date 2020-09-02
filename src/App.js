@@ -1,15 +1,14 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
-import Icon from "./Components/Icon/Icon";
-import "./App.css";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Desktop from "Pages/Desktop";
+import Login from "Pages/Login";
 
 function App() {
   return (
-    <div className="App-header">
-      <Icon />
-      {/* <span className="App-logo"> NoobOS </span> */}
-    </div>
+    <Router>
+      <Route path="/login" component={Login} />
+      <Route path="/" component={Desktop} />
+    </Router>
   );
 }
 
