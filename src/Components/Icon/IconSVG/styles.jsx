@@ -7,8 +7,8 @@ const StyledSVGIcon = styled(ReactSVG)`
     ${({ size }) =>
       size &&
       css`
-        width: ${size};
-        height: ${size};
+        width: ${size}px;
+        height: ${size}px;
       `}
     ${({ transform }) =>
       transform &&
