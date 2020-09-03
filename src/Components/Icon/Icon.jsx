@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import Draggable from "react-draggable";
+import useClickoutside from "hooks/useClickoutside";
 
 import IconSVG from "./IconSVG";
 import "./styles.css";
@@ -9,9 +10,13 @@ const positionInitState = {
   y: 10,
 };
 
-const Icon = ({ type = "txt", size, title = "noname" }) => {
+const Icon = ({ type = "folder", size, title = "noname" }) => {
   const [position, setPosition] = useState(positionInitState);
+  const [toggleChangeName, setToggleChangeName] = useState(false);
+  const [iconName, setIconName] = useState(title);
   const dragEleRef = useRef();
+
+  useClickoutside(dragEleRef, () => setToggleChangeName(false));
 
   const onDrag = (e, position) => {
     const { x, y } = position;
@@ -27,8 +32,13 @@ const Icon = ({ type = "txt", size, title = "noname" }) => {
     setPosition(position);
   };
 
-  const onChangeName = () => {
-    console.log("Cambia el nombre");
+  const handleInputChange = (e) => {
+    let name = e.target.value;
+    setIconName(name);
+  };
+
+  const onChangeName = (e) => {
+    if (e.key === "Enter") setToggleChangeName(false);
   };
 
   return (
@@ -46,7 +56,15 @@ const Icon = ({ type = "txt", size, title = "noname" }) => {
         <div className="handle" onDoubleClick={onDoubleClick}>
           <IconSVG name={type} {...size} />
         </div>
-        <span onDoubleClick={onChangeName}>{title}</span>
+        {toggleChangeName ? (
+          <input
+            value={iconName}
+            onChange={handleInputChange}
+            onKeyPress={onChangeName}
+          />
+        ) : (
+          <span onDoubleClick={setToggleChangeName}>{iconName}</span>
+        )}
       </div>
     </Draggable>
   );
