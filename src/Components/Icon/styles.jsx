@@ -1,11 +1,11 @@
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 
 export const StyledWrapperIcon = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0.7rem;
+  padding: 0.8rem;
   ${({ selected }) =>
     selected && {
       borderRadius: "15px",
