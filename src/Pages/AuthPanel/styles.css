@@ -1,0 +1,19 @@
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 2rem;
+    width: 80%;
+    height: 85vh;
+    background-color: aqua;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.content * {
+    flex: 1;
+    background-color: #fff;
+}
