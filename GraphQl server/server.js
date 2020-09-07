@@ -1,50 +1,42 @@
-const Realm = require("realm")
-const BSON = require('bson')
-const app = new Realm.App({id:'test-nxczp'})
-handleLogin();
-run();
+const express = require("express");
+const { graphqlHTTP } = require("express-graphql");
+const { buildSchema } = require("graphql");
+const port = 8000;
 
- const TestSchema = {
-  name: 'Test',
-  properties: {
-    _id: 'objectId',
-    Msg: 'string'
+const schema = buildSchema(`
+type Query{
+   msg: String,
+   pawa: String,
+   diceRoll(dices: Int!, sides:Int):[Int]
+   
+}
+
+`);
+
+const root = {
+  msg: () => {
+    return "Epale";
   },
-  title:"Test"
+  pawa: () => {
+    return "Do the imposible see the invisible, raw raw fight the power";
+  },
+  diceRoll: ({ dices, sides }) => {
+    if (!dices || !sides) return [0];
+    let answer = [];
+    for (i = 0; i < dices; i++) {
+      answer = [...answer, 1 + Math.floor(Math.random() * sides)];
+    }
+    return answer;
+  },
 };
-async function run(){
+const app = express();
 
-  await app.logIn(new Realm.Credentials.anonymous());
-  
-  
-  const realm = await Realm.open({
-    schema: [TestSchema]
-});
-
-realm.write(() => {
-  const newTask = realm.create("Test", {
-    _id: new BSON.ObjectID(),
-    Msg: "Esto es  OTRO TEST",
-
-    });
-});
-
-// const test = realm.objects('test')
-
-
-//to use sync we need a 4.4 cluster on MongoDb , they are not free
-
-
-}
-
-
-async function handleLogin(){
-    const credentials = Realm.Credentials.anonymous();
-    console.log('hola')
-     const user = await app.logIn(credentials);
-       console.log(`Logged in with the user id: ${user.id}`);
-}
-run().catch(err => {
-  console.error("Failed to log in:", err)
-})
-
+app.use(
+  "/graphql",
+  graphqlHTTP({
+    schema: schema,
+    rootValue: root,
+    graphiql: true,
+  })
+);
+app.listen(port);
