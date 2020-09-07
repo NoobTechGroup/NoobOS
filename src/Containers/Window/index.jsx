@@ -4,8 +4,8 @@ import React, { Component } from "react";
 import { WindowStyles } from "./styles";
 
 // Components
-import Content from "../../Components/Content";
-import FolderHeader from "../../Components/FolderHeader";
+import Content from "Components/Content";
+import FolderHeader from "Components/FolderHeader";
 
 export default class Window extends Component {
     render () {

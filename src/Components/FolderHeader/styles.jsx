@@ -26,7 +26,7 @@ export const ArrowPanel = styled.div`
 
 export const ContentPanel = styled.div`
     display: flex;
-    width: 60%;
+    width: 65%;
     align-items: center;
 `;
 
