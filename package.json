@@ -1,26 +1,15 @@
 {
-  "name": "noobos",
+  "name": "my-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@apollo/client": "^3.1.3",
+    "@material-ui/core": "^4.11.0",
     "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "classnames": "^2.2.6",
-    "graphql": "^15.3.0",
-    "lodash": "^4.17.20",
-    "moment": "^2.27.0",
-    "react": "^16.13.0",
-    "react-dnd": "^11.1.3",
-    "react-dnd-html5-backend": "^11.1.3",
-    "react-dom": "^16.13.0",
-    "react-draggable": "^4.4.3",
-    "react-modal": "^3.11.2",
-    "react-motion": "^0.5.2",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3",
-    "styled-components": "^5.1.1"
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.3"
   },
   "scripts": {
     "start": "react-scripts start",
