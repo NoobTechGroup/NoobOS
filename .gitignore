@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/GraphQl_server/node_modules
 /.pnp
 .pnp.js
 package-lock.json
