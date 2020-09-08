@@ -1,30 +1,29 @@
 import React from 'react'
 
-import IconImg from "assets/Icons/svgsample.svg";
+// Logos/Img
 
+import IconImg from "assets/Icons/svgsample.svg";
 import NavImg from "assets/Icons/NavImg.svg";
+import ListImg from "assets/Icons/svgsample.svg";
 import SearchImg from "assets/Icons/svgsample.svg";
 import SettingsImg from "assets/Icons/svgsample.svg";
-import ListImg from "assets/Icons/svgsample.svg";
 
 import {
     Box,
-    Icon,
-    ArrowPanel,
-    ArrowBack,
-    ArrowForward,
-    NavBack,
-    ContentPanel,
-    FolderLoc,
-    NavForward,
-    SearchPanel,
-    Searcher,
-    List,
-    Settings,
-    SizePanel,
-    Minimize,
-    Restore,
-    Close, 
+        Icon,
+        ArrowPanel,
+            ArrowBack,
+            ArrowForward,
+        ContentPanel,
+            NavForward,
+            FolderName,
+            NavBack,
+        OptionsPanel,
+            OptionIcon,
+        SizePanel,
+            Minimize,
+            Restore,
+            Close, 
 } from "./styles";
 
 
@@ -51,27 +50,31 @@ const FolderHeader = (props) => {
                     <NavBack>
                         <img src={NavImg} alt="Nav"/>
                     </NavBack>
-                    <FolderLoc> 
-                        {props.title1}
-                    </FolderLoc>
-                    <FolderLoc>{props.title2}</FolderLoc>
-                    <FolderLoc>{props.title3}</FolderLoc>
+                    <FolderName> 
+                        {props.Name}
+                    </FolderName>
+                    <FolderName>
+                        {props.Name2}
+                    </FolderName>
+                    <FolderName>
+                        {props.Name3}
+                    </FolderName>
                     <NavForward>
                         <img src={NavImg} alt="Nav"/>
                     </NavForward>
                 </ContentPanel>        
                 
-                <SearchPanel>
-                    <Searcher>  
+                <OptionsPanel>
+                    <OptionIcon>  
                         <img src={IconImg} alt="Search"/>
-                    </Searcher>
-                    <List>
+                    </OptionIcon>
+                    <OptionIcon>
                         <img src={IconImg} alt="List"/>
-                    </List>
-                    <Settings>
-                        <img src={IconImg} alt="Search"/>
-                    </Settings>
-                </SearchPanel>
+                    </OptionIcon>
+                    <OptionIcon>
+                        <img src={IconImg} alt="Settings"/>
+                    </OptionIcon>
+                </OptionsPanel>
                 <SizePanel>
                     <Minimize>🗕</Minimize>
                     <Restore>□</Restore>

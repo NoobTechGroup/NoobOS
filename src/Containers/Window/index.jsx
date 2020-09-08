@@ -12,9 +12,9 @@ export default class Window extends Component {
         return (
             <WindowStyles>
             <FolderHeader 
-            title1= "Home"
-            title2= "Documents"
-            title3= "Programming"
+            Name= "Home"
+            Name2= "Documents"
+            Name3= "Programming"
             />
             <Content 
             content= ""
