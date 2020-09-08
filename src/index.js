@@ -6,10 +6,8 @@ import ApolloProvider from "./apolloProvider.js";
 import App from "./App";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <ApolloProvider>
-      <App />
-    </ApolloProvider>
-  </React.StrictMode>,
+  <ApolloProvider>
+    <App />
+  </ApolloProvider>,
   document.getElementById("root")
 );
