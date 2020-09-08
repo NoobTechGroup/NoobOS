@@ -1,14 +1,16 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
-import Icon from "./Components/Icon/Icon";
-import "./App.css";
+import React, {useState} from 'react';
+import { Modal } from './modal/Modal';
 
 function App() {
+  const [show, setShow] = useState(false);
+
+  const close = () => setShow(false);
+
   return (
-    <div className="App-header">
-      <Icon />
-      {/* <span className="App-logo"> NoobOS </span> */}
+    <div>
+      { show ? <div onClick={close} className="back-drop"></div> : null }
+      <button onClick={() => setShow(!show)} className="btn-openModal">Open Modal</button>
+      <Modal show={show} close={close} />
     </div>
   );
 }
