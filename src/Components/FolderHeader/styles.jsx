@@ -1,7 +1,12 @@
 import styled from "styled-components";
 
-
 // Containers / Boxes / Panels
+
+export const ArrowPanel = styled.div`
+display:flex;
+margin: 0.3rem; 
+`;
+
 export const Box = styled.div`
     display: flex;
     width: 100%;
@@ -12,16 +17,7 @@ export const Box = styled.div`
     color: #aaa;
     align-content: center;
     align-items: center;
-    border-bottom: 0.05rem solid black;
-    
-        
-`;
-
-export const ArrowPanel = styled.div`
-    display:flex;
-    margin: 0.3rem;
-    
-        
+    border-bottom: 0.05rem solid black; 
 `;
 
 export const ContentPanel = styled.div`
@@ -30,22 +26,7 @@ export const ContentPanel = styled.div`
     align-items: center;
 `;
 
-
-export const SearchPanel = styled.div`
-    display:flex;
-    margin-left: auto;
-`;
-
-export const SizePanel = styled(SearchPanel)`
-    display: inline-block;
-    vertical-align: middle;
-    margin-left: 0.3rem;
-    margin-right: .3rem;
-    
-    
-`;
-
-export const FolderLoc = styled.button`
+export const FolderName = styled.button`
     overflow:hidden; 
     white-space:nowrap; 
     text-overflow: ellipsis;
@@ -65,12 +46,23 @@ export const FolderLoc = styled.button`
 
     &:active {
         background-color: #307bad;
-    }
+    }    
+`;
 
-    
+export const OptionsPanel = styled.div`
+    display:flex;
+    margin-left: auto;
+`;
+
+export const SizePanel = styled(OptionsPanel)`
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 0.3rem;
+    margin-right: .3rem; 
 `;
 
 //Icons
+
 export const Icon = styled.div`
     object-fit: contain;
     height: 1.2rem;
@@ -78,48 +70,34 @@ export const Icon = styled.div`
     padding: 0.2rem;
     margin: 0.3rem;
     border: none;
-    background-color: none;
-    
+    background-color: none;   
 }
 `;
-
 
 //Logos
 
 export const IconImg = styled.img`
-    display: inline-block;
-    vertical-align: middle;
-    justify-items: center;
-    justiy-content: center;
-    align-content: center;
-    align-items: center;
 `;
 
 export const NavImg = styled.img`
-   
     transform: rotate(90deg);
-    transform: [{ rotate: '90deg' }]
-    
-        
+    transform: [{ rotate: '90deg' }]     
 `;
 
-
 //Buttons / Navigation
-    export const ArrowBack = styled(FolderLoc)`
+
+    export const ArrowBack = styled(FolderName)`
     width: 2rem;
     &:hover {
         color: #fff;
         transition: 0.4s;
         background-color: #606060;
-    }
-    
+    }    
 `;
 
 export const ArrowForward = styled(ArrowBack)`
     transform: rotate(180deg);
 `;
-
-
 
 export const NavBack = styled(ArrowBack)`
     border-radius: none;
@@ -132,7 +110,7 @@ export const NavForward = styled(NavBack)`
 transform: rotate(270deg);
 `;
 
-export const Searcher = styled(Icon)` 
+export const OptionIcon = styled(Icon)` 
     margin: 0.1rem;
     height: 1.6rem;
     width: 1.6rem;
@@ -144,16 +122,8 @@ export const Searcher = styled(Icon)`
     }
 `;
 
-export const List = styled(Searcher)` 
-  
-`;
 
-export const Settings = styled(Searcher)`
-   
-    
-`;
-
-export const Minimize = styled(FolderLoc)` 
+export const Minimize = styled(FolderName)` 
     height: 2rem;
     width: 2rem;
     background-color: transparent;
@@ -170,18 +140,13 @@ export const Minimize = styled(FolderLoc)`
 `;
 
 export const Restore = styled(Minimize)` 
-    
     &:hover {
         background-color: #78d687;
     }
-
 `;
 
 export const Close = styled(Minimize)` 
-    
     &:hover {
         background-color: #f53333;
     }
-
 `;
-
