@@ -1,14 +1,14 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
-import Notification from "./Components/Notification";
-import "./App.css";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Desktop from "Pages/Desktop";
+import Login from "Pages/Login";
 
 function App() {
   return (
-    <div className="App-header">
-      <Notification title="Title" text="Message" position=""/>
-    </div>
+    <Router>
+      <Route path="/login" component={Login} />
+      <Route path="/" component={Desktop} />
+    </Router>
   );
 }
 
