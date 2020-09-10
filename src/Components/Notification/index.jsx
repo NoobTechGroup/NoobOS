@@ -1,5 +1,6 @@
 // Dependencies
 import React from "react";
+// import IconImg from "assets/Icons/svgsample.svg";
 
 // Components
 
@@ -10,27 +11,24 @@ import {
   NotificationStyle,
   NotificationTitle,
   TextNotification,
-  Button
+  Close
 } from "./styles";
+
 
 const Notification = props => {
   const { title, text, position } = props;
 
   return (
-    <ContainerBox className={`container-box ${position}`}>
-      <NotificationStyle className={`notification-style ${position}`}>
-        <div>
-          <NotificationTitle className="notification-title">
-            {title}
-          </NotificationTitle>
-          <TextNotification className="notification-msg">
-            {text}
-          </TextNotification>
-        </div>
-        <Button className="button">
-          x
-        </Button>
+    <ContainerBox position={position} >
+      <NotificationStyle>
+        <NotificationTitle>
+          {title}
+        </NotificationTitle>
+        <Close>✖</Close>
       </NotificationStyle>
+      <TextNotification>
+        {text}
+      </TextNotification>
     </ContainerBox>
   );
 };
