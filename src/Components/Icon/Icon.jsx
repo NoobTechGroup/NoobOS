@@ -1,18 +1,23 @@
-import React, { useRef, useState } from "react";
-import Draggable from "react-draggable";
-import IconSVG from "./IconSVG";
-import { DEFAULT_DESKTOP_SIZE} from './constants';
+import React, { useRef, useState, useEffect } from 'react';
+import Draggable from 'react-draggable';
+import IconSVG from './IconSVG';
+import { DEFAULT_DESKTOP_SIZE } from './constants';
 
-import useClickoutside from "hooks/useClickoutside";
+import useClickoutside from 'hooks/useClickoutside';
 
-import {StyledHandleIcon, StyledLabelIcon, StyledWrapperIcon} from './styles'
+import {
+  StyledHandleIcon,
+  StyledLabelIcon,
+  StyledWrapperIcon,
+  StyledTextArea,
+} from './styles';
 
-import "./styles.css";
+import './styles.css';
 
 /**
- * 
+ *
  * TODO: Wait for Input Component
- * 
+ *
  */
 
 const positionInitState = {
@@ -21,9 +26,9 @@ const positionInitState = {
 };
 
 const Icon = ({
-  type = "txt",
+  type = 'txt',
   size = DEFAULT_DESKTOP_SIZE,
-  title = "noname",
+  title = 'noname',
 }) => {
   const [position, setPosition] = useState(positionInitState);
   const [toggleChangeName, setToggleChangeName] = useState(false);
@@ -42,7 +47,7 @@ const Icon = ({
 
   const onDoubleClick = () => {
     // TODO: Check what kind of type is in order to know what to execute
-    console.log("doble click");
+    console.log('doble click');
   };
 
   const onStop = (e, position) => {
@@ -55,13 +60,13 @@ const Icon = ({
   };
 
   const quitEditName = () => {
-    if (iconName !== "") {
+    if (iconName !== '') {
       setToggleChangeName(false);
     }
   };
 
   const onChangeName = (e) => {
-    if (e.key === "Enter") quitEditName();
+    if (e.key === 'Enter') quitEditName();
   };
 
   return (
@@ -75,16 +80,21 @@ const Icon = ({
       defaultClassName="dragIcon"
       handle=".handle"
     >
-      <StyledWrapperIcon ref={dragEleRef} onClick={() => setSelected(true)} selected={selected}>
+      <StyledWrapperIcon
+        ref={dragEleRef}
+        onClick={() => setSelected(true)}
+        selected={selected}
+      >
         <StyledHandleIcon className="handle" onDoubleClick={onDoubleClick}>
           <IconSVG name={type} size={size} />
         </StyledHandleIcon>
         {toggleChangeName ? (
-          <input
+          <StyledTextArea
             value={iconName}
             onChange={handleInputChange}
             onKeyPress={onChangeName}
             autoFocus
+            onFocus={(e) => e.target.select()}
           />
         ) : (
           <StyledLabelIcon onDoubleClick={setToggleChangeName}>

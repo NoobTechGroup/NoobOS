@@ -1,4 +1,4 @@
-import styled from 'styled-components/macro'
+import styled from 'styled-components/macro';
 
 export const StyledWrapperIcon = styled.div`
   display: flex;
@@ -6,16 +6,21 @@ export const StyledWrapperIcon = styled.div`
   justify-content: center;
   align-items: center;
   padding: 0.8rem;
+  height: auto;
   ${({ selected }) =>
     selected && {
-      borderRadius: "15px",
-      border: "2px solid #282c34",
+      borderRadius: '15px',
+      border: '2px solid #282c34',
     }}
 `;
 
-export const StyledHandleIcon = styled.div``
+export const StyledHandleIcon = styled.div``;
 
 export const StyledLabelIcon = styled.span`
-    font-size: 1rem;
-    cursor: default;
-`
+  font-size: 1rem;
+  cursor: default;
+`;
+
+export const StyledTextArea = styled.textarea`
+  resize: vertical;
+`;

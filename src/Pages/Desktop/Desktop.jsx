@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 import Icon from 'Components/Icon';
 
-import "App.css";
+import 'App.css';
 
 /**
  * @Comment This change is for presentational purpose only
